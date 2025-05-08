@@ -4,7 +4,7 @@ const { SecretClient } = require('@azure/keyvault-secrets');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const vaultUrl = 'https://myapp-kv.vault.azure.net/'; // Update with your Key Vault URL
+const vaultUrl = 'https://api-key-demoapp-01.vault.azure.net/'; // Update with your Key Vault URL
 
 app.get('/', async (req, res) => {
   try {
