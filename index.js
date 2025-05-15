@@ -1,3 +1,9 @@
+const appInsights = require('applicationinsights');
+appInsights.setup(process.env.APPLICATIONINSIGHTS__CONNECTION_STRING)
+          .setAutoCollectRequests(true) // Collect HTTP requests
+          .setAutoCollectPerformance(true) // Collect performance metrics
+          .start();
+
 const express = require("express");
 const { DefaultAzureCredential } = require("@azure/identity");
 const { SecretClient } = require("@azure/keyvault-secrets");

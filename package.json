@@ -15,6 +15,7 @@
   "dependencies": {
     "@azure/identity": "^4.9.1",
     "@azure/keyvault-secrets": "^4.9.0",
+    "applicationinsights": "^3.7.0",
     "express": "^5.1.0"
   }
 }
