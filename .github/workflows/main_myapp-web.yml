@@ -35,13 +35,10 @@ jobs:
 
       - name: Send Slack notification on failure
         if: failure()
-        uses: slackapi/slack-github-action@v1.27.0
+        uses: slackapi/slack-github-action@v1.26.0
         with:
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          payload: |
-            {
-              "text": "🚨 Security Scan Failed for myapp-web: Hardcoded secret detected in commit ${{ github.sha }}! Pipeline stopped to prevent deployment."
-            }
+          slack-message: "🚨 Security Scan Failed for myapp-web: Hardcoded secret detected in commit ${{ github.sha }}! Pipeline stopped to prevent deployment."
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
@@ -78,10 +75,7 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2616E6B4C7594C26ABF1DE03168D7310 }}
 
       - name: Send Slack notification on success
-        uses: slackapi/slack-github-action@v1.27.0
+        uses: slackapi/slack-github-action@v1.26.0
         with:
           slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          payload: |
-            {
-              "text": "✅ Deployment Succeeded for myapp-web: Commit ${{ github.sha }} passed security scans and was deployed to Azure Web App!"
-            }
+          slack-message: "✅ Deployment Succeeded for myapp-web: Commit ${{ github.sha }} passed security scans and was deployed to Azure Web App!"
