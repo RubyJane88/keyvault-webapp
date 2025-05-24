@@ -1,0 +1,1 @@
+const API_KEY = 'FAKE-API-KEY-12345';
