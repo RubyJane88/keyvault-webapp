@@ -1,1 +1,1 @@
-const API_KEY = process.env.API_KEY || '';
+const API_KEY = 'FAKE-API-KEY-12345';
