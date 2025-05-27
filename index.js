@@ -1,8 +1,9 @@
-const appInsights = require('applicationinsights');
-appInsights.setup(process.env.APPLICATIONINSIGHTS__CONNECTION_STRING)
-          .setAutoCollectRequests(true) // Collect HTTP requests
-          .setAutoCollectPerformance(true) // Collect performance metrics
-          .start();
+const appInsights = require("applicationinsights");
+appInsights
+  .setup(process.env.APPLICATIONINSIGHTS__CONNECTION_STRING)
+  .setAutoCollectRequests(true) // Collect HTTP requests
+  .setAutoCollectPerformance(true) // Collect performance metrics
+  .start();
 
 const express = require("express");
 const { DefaultAzureCredential } = require("@azure/identity");
@@ -17,7 +18,7 @@ app.get("/", async (req, res) => {
     const credential = new DefaultAzureCredential();
     const client = new SecretClient(vaultUrl, credential);
     const secret = await client.getSecret("DemoSecret001");
-    res.send(`<h1>Secure Web App</h1><p>API Key: ${secret.value}</p>`);
+    res.send(`<h1>My Secure Web App </h1><p>API Key: ${secret.value}</p>`);
   } catch (error) {
     res.status(500).send(`Error retrieving secret: ${error.message}`);
   }
