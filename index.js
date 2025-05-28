@@ -17,7 +17,7 @@ app.get("/", async (req, res) => {
   try {
     const credential = new DefaultAzureCredential();
     const client = new SecretClient(vaultUrl, credential);
-    const secret = await client.getSecret("InvalidDSecret");
+    const secret = await client.getSecret("DemoSecret001");
     res.send(`<h1>Secure Web App </h1><p>API Key: ${secret.value}</p>`);
   } catch (error) {
     res.status(500).send(`Error retrieving secret: ${error.message}`);
